@@ -2,11 +2,8 @@ package com.example.budgettracker
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils.replace
 import androidx.navigation.fragment.NavHostFragment
-import com.example.budgettracker.ui.MainScreenFragment
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

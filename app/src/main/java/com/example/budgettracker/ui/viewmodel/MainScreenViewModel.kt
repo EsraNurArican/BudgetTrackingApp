@@ -1,16 +1,10 @@
-package com.example.budgettracker.ui
+package com.example.budgettracker.ui.viewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.budgettracker.data.local.model.ExpenseEntity
-import com.example.budgettracker.data.local.model.TYPE
-import com.example.budgettracker.data.repository.ExpenseRepository
 import com.example.budgettracker.data.repository.IExpenseRepository
-import dagger.hilt.android.HiltAndroidApp
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,5 +16,3 @@ class MainScreenViewModel  @Inject constructor(private val expenseRepository: IE
     val totalBalance: LiveData<Double> = expenseRepository.getBalance()
 
 }
-
-

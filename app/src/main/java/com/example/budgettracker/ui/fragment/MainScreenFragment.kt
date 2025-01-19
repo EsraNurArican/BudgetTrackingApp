@@ -1,21 +1,18 @@
-package com.example.budgettracker.ui
+package com.example.budgettracker.ui.fragment
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.budgettracker.R
 import com.example.budgettracker.databinding.FragmentMainScreenBinding
+import com.example.budgettracker.ui.viewmodel.MainScreenViewModel
 import com.example.budgettracker.ui.adapter.ExpenseAdapter
 import dagger.hilt.android.AndroidEntryPoint
-
-private const val TAG: String = "MainScreenFragment"
-
+private const val TAG = "MainScreenFragment"
 @AndroidEntryPoint
 class MainScreenFragment : Fragment() {
 
@@ -46,7 +43,7 @@ class MainScreenFragment : Fragment() {
 
         // Set expense adapter to show all expense list items on the RV
         viewModel.expenses.observe(viewLifecycleOwner) { expenses ->
-            Log.d(TAG,expenses.toString())
+            Log.d(TAG, expenses.toString())
             expenseAdapter.setExpenses(expenses)
         }
 

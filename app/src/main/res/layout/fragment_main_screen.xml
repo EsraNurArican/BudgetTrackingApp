@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.budgettracker.ui.MainScreenViewModel" />
+            type="com.example.budgettracker.ui.viewmodel.MainScreenViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

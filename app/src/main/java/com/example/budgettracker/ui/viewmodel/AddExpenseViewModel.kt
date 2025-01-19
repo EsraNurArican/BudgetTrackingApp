@@ -1,7 +1,6 @@
-package com.example.budgettracker.ui
+package com.example.budgettracker.ui.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,11 +10,10 @@ import com.example.budgettracker.data.repository.IExpenseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Locale
 import javax.inject.Inject
-import java.util.Date
-
-private const val TAG: String = "AddExpenseViwModel"
+private const val TAG = "AddExpenseViewModel"
 
 @HiltViewModel
 class AddExpenseViewModel @Inject constructor(private val expenseRepository: IExpenseRepository) : ViewModel() {
@@ -91,11 +89,10 @@ class AddExpenseViewModel @Inject constructor(private val expenseRepository: IEx
             type = selectedType.value ?: TYPE.INCOME,
             date = selectedDate.value ?: System.currentTimeMillis()
         )
-        Log.d(TAG,expense.toString())
+        Log.d(TAG, expense.toString())
         viewModelScope.launch {
             expenseRepository.insert(expense)
         }
         return true
     }
 }
-

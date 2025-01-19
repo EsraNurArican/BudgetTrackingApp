@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/mainScreenFragment"
-        android:name="com.example.budgettracker.ui.MainScreenFragment"
+        android:name="com.example.budgettracker.ui.fragment.MainScreenFragment"
         android:label="Harcama Takibi"
         tools:layout="@layout/fragment_main_screen" >
 
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/addExpenseFragment"
-        android:name="com.example.budgettracker.ui.AddExpenseFragment"
+        android:name="com.example.budgettracker.ui.fragment.AddExpenseFragment"
         android:label="Harcama Girişi"
         tools:layout="@layout/fragment_add_expense">
 

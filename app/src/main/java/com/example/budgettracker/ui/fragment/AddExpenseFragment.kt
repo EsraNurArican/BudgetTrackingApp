@@ -1,26 +1,20 @@
-package com.example.budgettracker.ui
+package com.example.budgettracker.ui.fragment
 
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.example.budgettracker.R
 import com.example.budgettracker.databinding.FragmentAddExpenseBinding
+import com.example.budgettracker.ui.viewmodel.AddExpenseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
-
-private const val TAG: String = "AddExpenseFragment"
 
 @AndroidEntryPoint
 class AddExpenseFragment : DialogFragment() {
@@ -59,13 +53,20 @@ class AddExpenseFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
         dialog.window?.setBackgroundDrawableResource(R.drawable.app_background_drawable)
-        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         return dialog
     }
 
     private fun setupSpinners() {
         // Setup Type Spinner
-        val typeAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, listOf("Gelir", "Gider"))
+        val typeAdapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_dropdown_item_1line,
+            listOf("Gelir", "Gider")
+        )
         binding.typeSpinner.apply {
             setAdapter(typeAdapter)
             setOnFocusChangeListener { _, _ -> showDropDown() }
@@ -77,7 +78,8 @@ class AddExpenseFragment : DialogFragment() {
 
         // Setup Category Spinner
         viewModel.categoryList.observe(viewLifecycleOwner) { categories ->
-            val categoryAdapter = ArrayAdapter(requireContext(), R.layout.spinner_item_layout, categories)
+            val categoryAdapter =
+                ArrayAdapter(requireContext(), R.layout.spinner_item_layout, categories)
             binding.categorySpinner.apply {
                 setAdapter(categoryAdapter)
                 setOnFocusChangeListener { _, _ -> showDropDown() }
@@ -100,10 +102,17 @@ class AddExpenseFragment : DialogFragment() {
             val calendar = Calendar.getInstance().apply {
                 timeInMillis = viewModel.selectedDate.value ?: System.currentTimeMillis()
             }
-            DatePickerDialog(requireContext(), { _, year, month, day ->
-                val selectedDate = Calendar.getInstance().apply { set(year, month, day) }.timeInMillis
-                viewModel.onDateSelected(selectedDate)
-            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show()
+            DatePickerDialog(
+                requireContext(),
+                { _, year, month, day ->
+                    val selectedDate =
+                        Calendar.getInstance().apply { set(year, month, day) }.timeInMillis
+                    viewModel.onDateSelected(selectedDate)
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            ).show()
         }
     }
 
@@ -112,9 +121,3 @@ class AddExpenseFragment : DialogFragment() {
         _binding = null
     }
 }
-
-
-
-
-
-
