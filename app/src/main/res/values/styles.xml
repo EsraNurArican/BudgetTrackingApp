@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ThemeOverlay.BudgetTrackerApp.DatePicker" parent="ThemeOverlay.Material3.MaterialCalendar">
+        <item name="materialCalendarStyle">@style/myCalendarStyle</item>
+        <item name="colorPrimary">@color/content_primary_blue</item>
+        <item name="colorSecondary">@color/content_primary_blue</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="materialCalendarHeaderSelection">@style/myHeaderSelection</item>
+        <item name="materialCalendarHeaderTitle">@style/myTitleStyle</item>
+        <item name="materialCalendarHeaderToggleButton">@style/myIconStyle</item>
+        <item name="materialCalendarYearNavigationButton">@style/myDatePickerYearSelection</item>
+        <item name="materialCalendarMonthNavigationButton">@style/myDatePickerMonthPagination</item>
+        <item name="materialCalendarDayOfWeekLabel">@style/myDayOfWeek</item>
+    </style>
+
+    <style name="myCalendarStyle" parent="Widget.Material3.MaterialCalendar">
+        <item name="backgroundTint">#E5F4FD</item>
+        <item name="shapeAppearance">?attr/shapeAppearanceCornerExtraSmall</item>
+        <item name="dayStyle">@style/myDayStyle</item>
+        <item name="daySelectedStyle">@style/myDaySelectedStyle</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="myHeaderSelection" parent="Widget.MaterialComponents.MaterialCalendar.HeaderTitle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">32dp</item>
+    </style>
+
+    <style name="dateTitle" parent="@style/Widget.Material3.MaterialCalendar.HeaderTitle" >
+        <item name="android:textAppearance">@font/montserrat_regular</item>
+        <item name="autoSizeMaxTextSize">4sp</item>
+        <item name="android:dateTextAppearance">?attr/textAppearanceBodySmall</item>
+        <item name="color">@color/content_primary_blue</item>
+    </style>
+
+    <style name="myDayStyle" parent="Widget.MaterialComponents.MaterialCalendar.Day">
+        <item name="itemTextColor">@color/white</item>
+    </style>
+
+    <style name="myDaySelectedStyle" parent="Widget.MaterialComponents.MaterialCalendar.Day.Selected">
+        <item name="itemFillColor">@color/white</item>
+        <item name="itemTextColor">@color/white</item>
+        <item name="itemStrokeWidth">1dp</item>
+        <item name="itemStrokeColor">@color/primary_blue</item>
+    </style>
+
+    <style name="myTitleStyle" parent="@style/Widget.Material3.MaterialCalendar.HeaderTitle">
+        <item name="android:textColor">@color/content_primary_blue</item>
+    </style>
+
+    <style name="myIconStyle" parent="Widget.Material3.MaterialCalendar.HeaderToggleButton">
+        <item name="android:tint">@color/content_primary_blue</item>
+    </style>
+
+    <style name="myDatePickerYearSelection" parent="@style/Widget.Material3.MaterialCalendar.YearNavigationButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="iconTint">@color/white</item>
+    </style>
+
+    <style name="myDatePickerMonthPagination" parent="@style/Widget.Material3.MaterialCalendar.MonthNavigationButton">
+        <item name="iconTint">@color/white</item>
+    </style>
+
+    <style name="myDayOfWeek" parent="Widget.MaterialComponents.MaterialCalendar.DayOfWeekLabel">
+        <item name="android:textAppearance">@macro/m3_comp_date_picker_modal_weekdays_label_text_type</item>
+        <item name="android:textColor">@color/content_primary_blue </item>
+    </style>
+
+</resources>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="expenseViewModel"
+            type="com.example.budgettracker.ui.AddExpenseViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context="com.example.budgettracker.ui.AddExpenseFragment">
+
+        <!-- Type Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/typeLayout"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxStrokeColor="?attr/colorOnSurface"
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            android:textColorHint="?attr/colorOnSurface">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/typeSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Harcama Tipi Seçiniz"
+                android:padding="8dp"
+                android:textSize="16sp"
+                android:text="@={expenseViewModel.selectedTypeString}"
+                android:textColor="?attr/colorOnSurface"
+                android:importantForAccessibility="yes"
+                android:fontFamily="@font/montserrat_regular"
+                app:popupTheme="@style/Theme.MaterialComponents.Light"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Category Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/categoryLayout"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/typeLayout"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxStrokeColor="?attr/colorOnSurface"
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            android:textColorHint="?attr/colorOnSurface">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/categorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Categori Giriniz ya da Seçiniz"
+                android:padding="8dp"
+                android:textSize="16sp"
+                android:textColor="?attr/colorOnSurface"
+                android:importantForAccessibility="yes"
+                android:text="@={expenseViewModel.selectedCategory}"
+                android:fontFamily="@font/montserrat_regular"
+                app:popupTheme="@style/Theme.MaterialComponents.Light"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Date Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dateLayout"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categoryLayout"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxStrokeColor="?attr/colorOnSurface"
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            android:textColorHint="?attr/colorOnSurface">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/dateField"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Tarih Seçiniz"
+                android:padding="8dp"
+                android:focusable="false"
+                android:clickable="true"
+                android:textSize="16sp"
+                android:textColor="?attr/colorOnSurface"
+                android:importantForAccessibility="yes"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@={expenseViewModel.formattedDate}"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Amount Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/amountLayout"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dateLayout"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxStrokeColor="?attr/colorOnSurface"
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            android:textColorHint="?attr/colorOnSurface">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/amountField"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Tutar Giriniz"
+                android:padding="8dp"
+                android:inputType="numberDecimal"
+                android:textSize="16sp"
+                android:textColor="?attr/colorOnSurface"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@={expenseViewModel.amount}"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="48dp"
+            android:text="Kaydet"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:backgroundTint="@color/colorSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/amountLayout"
+            android:textColor="@android:color/white"
+            app:cornerRadius="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/mainScreenFragment">
+
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="com.example.budgettracker.ui.MainScreenFragment"
+        android:label="Harcama Takibi"
+        tools:layout="@layout/fragment_main_screen" >
+
+        <action
+            android:id="@+id/action_navigateHomeScreen_to_AddFragment"
+            app:destination="@id/addExpenseFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addExpenseFragment"
+        android:name="com.example.budgettracker.ui.AddExpenseFragment"
+        android:label="Harcama Girişi"
+        tools:layout="@layout/fragment_add_expense">
+
+        <action
+            android:id="@+id/action_addFragment_to_MainScreen"
+            app:destination="@+id/mainScreenFragment"
+            app:popUpTo="@id/mainScreenFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+</navigation>

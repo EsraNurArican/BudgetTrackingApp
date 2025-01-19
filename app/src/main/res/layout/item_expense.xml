@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="expense"
+            type="com.example.budgettracker.data.local.model.ExpenseEntity" />
+        <import type="com.example.budgettracker.data.local.model.TYPE" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="4dp"
+        android:layout_marginHorizontal="8dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/MCVExpense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:strokeWidth="2dp"
+            app:strokeColorForType="@{expense.type}"
+            android:padding="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Icon for Type -->
+                <ImageView
+                    android:id="@+id/IVExpenseTypeIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="8dp"
+                    app:iconForType="@{expense.type}" />
+
+                <!-- Category -->
+                <TextView
+                    android:id="@+id/TVExpenseCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/IVExpenseTypeIcon"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textSize="16sp"
+                    android:text="@{expense.category}" />
+
+                <!-- Date -->
+                <TextView
+                    android:id="@+id/TVExpenseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/TVExpenseCategory"
+                    android:layout_toEndOf="@id/IVExpenseTypeIcon"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textSize="14sp"
+                    app:formattedDate="@{expense.date}" />
+
+                <!-- Price -->
+                <TextView
+                    android:id="@+id/TVExpenseAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="8dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:text='@{String.valueOf(expense.amount)+ " ₺"}' />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</layout>
