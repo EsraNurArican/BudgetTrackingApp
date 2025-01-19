@@ -29,8 +29,8 @@ object BindingAdapters {
     fun setStrokeColor(cardView: MaterialCardView, type: TYPE) {
         type?.let {
             val color = when (it) {
-                TYPE.INCOME -> ContextCompat.getColor(cardView.context, R.color.income_green)
-                TYPE.EXPENSE -> ContextCompat.getColor(cardView.context, R.color.expense_red)
+                TYPE.INCOME -> ContextCompat.getColor(cardView.context, R.color.md_theme_primary)
+                TYPE.EXPENSE -> ContextCompat.getColor(cardView.context, R.color.md_theme_error)
             }
             cardView.strokeColor = color
         }
